@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC 
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <!--
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
@@ -46,5 +48,23 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:derby://localhost:1527/dacdb</property>
     <property name="hibernate.connection.username">adm</property>
     <property name="hibernate.connection.password">adm</property>
+    
+    <!-- Disable the second-level cache  -->
+    <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+    <!-- Echo all executed SQL to stdout -->
+    <property name="hibernate.show_sql">true</property>
+
+    <!-- Drop and re-create the database schema on startup -->
+    <property name="hibernate.hbm2ddl.auto">create</property>
+    
+    <mapping class="Model.Eventguests" />
+    <mapping class="Model.EventguestsPK" />
+    <mapping class="Model.Events" />   
+    <mapping class="Model.Eventtypes" />  
+    <mapping class="Model.Resources" />
+    <mapping class="Model.Rooms" />
+    <mapping class="Model.Users" />   
+    <mapping class="Model.Usertypes" />  
   </session-factory>
 </hibernate-configuration>
