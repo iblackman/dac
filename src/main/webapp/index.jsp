@@ -12,9 +12,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./CSS/estilo.css" type="text/css" /> 
         <title>JSP Page</title>
     </head>
     <body>
+        <%@include file="T_Menu.jsp" %>
         <h1>Hello World! modificado</h1>
+        <%@include file="T_Footer.jsp" %>
     </body>
 </html>
