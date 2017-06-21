@@ -6,11 +6,11 @@
 
         <link rel="stylesheet" href="./CSS/estilo.css" type="text/css" /> 
 
-        <%@include file="T_Menu.jsp" %>
+        <%@include file="menu.jsp" %>
 
         <div id="submenu">
 
-            <% // caso seja guest
+            <% // caso seja guest //// so pra deixar aqui, os UserTypes estao criados, 1-adm, 2-Host, 3-Guest***********ATENCAO
                 int a = 3;
                 // 0 = gest, 1 = host, 2 = adm
                 if (a >= 0) {
@@ -47,4 +47,4 @@
         </div>
 
 
-        <%@include file="T_Footer.jsp" %>
+        <%@include file="footer.jsp" %>

@@ -21,7 +21,7 @@
     </head>
     <body>
         
-        <%@include file="T_Menu.jsp" %>
+        <%@include file="menu.jsp" %>
         <h1>Página inicial com o blá blá blá de ser um projeto de uma matéria da UFF dos alunos blá blá blá</h1>
         <%
             //Testes apenas, esta errado fazer desse jeito, o controller (servlet) que deve processar (pelo menos eu acho)
@@ -37,6 +37,6 @@
         %>
         <p><%=event.getName()%></p>
         
-        <%@include file="T_Footer.jsp" %>
+        <%@include file="footer.jsp" %>
     </body>
 </html>

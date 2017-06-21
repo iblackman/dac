@@ -11,9 +11,9 @@
     <div id="itens_menu">
 		<ul>
                         <li><a href="index.jsp">Home</a></li>
-                        <li><a href="T_Login.jsp">Login</a></li>
-			<li><a href="T_ListaEventos.jsp">Lista de Eventos</a></li>
-                        <li><a href="T_FerramentasAdm.jsp">Ferramentas Administrativas</a></li>
+                        <li><a href="login.jsp">Login</a></li>
+			<li><a href="listaeventos.jsp">Lista de Eventos</a></li>
+                        <li><a href="ferramentasadm.jsp">Ferramentas Administrativas</a></li>
 		</ul>
 	</div>
     

@@ -4,9 +4,9 @@
     Author     : caio
 --%>
 
-        <%@include file="T_Menu.jsp" %>
+        <%@include file="fenu.jsp" %>
 
         <h1>CRIAR EVENTOS</h1>
 
-        <%@include file="T_Footer.jsp" %>
+        <%@include file="footer.jsp" %>
 
