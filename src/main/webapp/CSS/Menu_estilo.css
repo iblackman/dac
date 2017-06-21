@@ -1,0 +1,50 @@
+.menu{
+    background-color: #2E8B57;
+
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-top: -8px;
+    margin-bottom:-8px;
+
+    padding-left: 16px;
+       
+    height: 70px;
+
+    width: 100%;
+}
+
+
+#itens_menu{
+    position: relative;
+    height: 50%;
+    top: 40%;
+    width: auto;
+}
+
+
+#itens_menu ul{
+    padding:0px;
+    margin:0px;
+    float: left;
+    list-style:none;
+    font:80% Tahoma; 
+
+
+}
+
+#itens_menu li { display: inline; }
+
+#itens_menu li a {
+
+    color: #333;
+    text-decoration: none;
+
+    padding: 2px 10px;
+    float:left;
+}
+
+#itens_menu ul li a:hover {
+    background-color:white;
+    color: #6D6D6D;
+
+}

@@ -1,0 +1,50 @@
+<%-- 
+    Document   : FerramentasAdm
+    Created on : 20/06/2017, 21:45:24
+    Author     : caio
+--%>
+
+        <link rel="stylesheet" href="./CSS/estilo.css" type="text/css" /> 
+
+        <%@include file="T_Menu.jsp" %>
+
+        <div id="submenu">
+
+            <% // caso seja guest
+                int a = 3;
+                // 0 = gest, 1 = host, 2 = adm
+                if (a >= 0) {
+                    out.print("<table><thead><tr><th>Participação</th></tr></thead>");
+                    out.print("<tdoby>");
+                    out.print("<tr><td><a href = \"\">Criar Eventos</a></td></tr>");
+                    out.print("<tr><td><a href = \"\">Cancelar inscrição em Eventos</a></td></tr>");
+                    out.print("<tr><td><a href = \"\">Inscrição em Eventos</a></td></tr>");
+                    out.print("</tdoby></table>");
+                }
+                if (a >= 1) {
+                    out.print("<table><thead><tr><th>Controle</th></tr></thead>");
+                    out.print("<tdoby>");
+                    out.print("<tr><td><a href = \"\">Lista de Inscritos</a></td></tr>");
+                    out.print("<tr><td><a href = \"\">Controle de Presença</a></td></tr>");
+                    out.print("</tdoby></table>");
+
+                }
+                if (a >= 2) {
+
+                    out.print("<table><thead><tr><th>Aprovação</th></tr></thead>");
+                    out.print("<tdoby>");
+                    out.print("<tr><td><a href = \"\">Aprovação de Eventos</a></td></tr>");
+                    out.print("</tdoby></table>");
+                }
+            %>
+
+
+
+
+
+
+
+        </div>
+
+
+        <%@include file="T_Footer.jsp" %>

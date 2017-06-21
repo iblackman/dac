@@ -16,8 +16,15 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
         <%@include file="T_Menu.jsp" %>
-        <h1>Hello World! modificado</h1>
+        
+        
+        
+        <h1>Página inicial com o blá blá blá de ser um projeto de uma matéria da UFF dos alunos blá blá blá</h1>
+        
+        
+        
         <%@include file="T_Footer.jsp" %>
     </body>
 </html>
