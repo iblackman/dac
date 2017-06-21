@@ -91,7 +91,7 @@ public class HibernateSessionFactory {
         //Date date = sdf.parse(dateInString1);
         
         //exemplo de evento
-        Events ev = new Events(1, "name", "description", sdf.parse(dateInString1), sdf.parse(dateInString2), 10);
+        Events ev = new Events();
         ev.setName("Evento");
         ev.setDescription("Descricao");
         ev.setMaxguests(10);

@@ -49,7 +49,7 @@ public class Rooms implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "NAME")
     private String name;
-    @JoinTable(name = "ROOMRESOUCES", joinColumns = {
+    @JoinTable(name = "ROOMRESOURCES", joinColumns = {
         @JoinColumn(name = "ROOMID", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "RESOURCEID", referencedColumnName = "ID")})
     @ManyToMany
