@@ -85,7 +85,7 @@ public class Events implements Serializable {
         @JoinColumn(name = "USERTYPEID", referencedColumnName = "ID")})
     @ManyToMany
     private Collection<Usertypes> usertypesCollection;
-    @JoinTable(name = "EVENTRESOUCES", joinColumns = {
+    @JoinTable(name = "EVENTRESOURCES", joinColumns = {
         @JoinColumn(name = "EVENTID", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "RESOURCEID", referencedColumnName = "ID")})
     @ManyToMany
@@ -105,14 +105,10 @@ public class Events implements Serializable {
     public Events() {
     }
 
-    public Events(Integer id) {
-        this.id = id;
-    }
-
-    public Events(Integer id, String name, String description, Date startdt, Date enddt, int maxguests) {
-        this.id = id;
+    public Events( String name, String description, int status, Date startdt, Date enddt, int maxguests) {
         this.name = name;
         this.description = description;
+        this.status = status;
         this.startdt = startdt;
         this.enddt = enddt;
         this.maxguests = maxguests;
