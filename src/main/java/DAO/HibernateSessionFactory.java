@@ -1,5 +1,7 @@
 package DAO;
 
+import Model.Users;
+import Model.Usertypes;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -16,15 +18,39 @@ public class HibernateSessionFactory {
             configuration.configure();
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-            FillDB();
+            fillDB();
         }
         return sessionFactory.openSession();
     }
     
-    private static void FillDB(){
-        Session s = sessionFactory.openSession();
+    //Inserir os valores do DB
+    //Porque o banco vai criado toda vez que a aplicacaoo for feita
+    private static void fillDB(){
+        Session s = sessionFactory.openSession();//HibernateSessionFactory.getSession();
         s.beginTransaction();
         
+        Usertypes us = new Usertypes();
+        us.setName("User");
+        us.setPermission(1);
+        s.save(us);
+        
+        Users u = new Users();
+        u.setName("Blackman");
+        u.setEmail("Black@v.com.br");
+        u.setLogin("test");
+        u.setPassword("test");
+        u.setUsertypeid(us);
+        s.save(u); 
+        
+        s.getTransaction().commit();
+	s.close();
+    }    
+    
+    
+//    public static void SaveDB(Usertypes user){
+//        Session s = HibernateSessionFactory.getSession();
+//        s.beginTransaction();
+//        
 //        User user = new User();
 //        user.setName("Igor Antunes");
 //        user.setCity("Rio de Janeiro");
@@ -37,7 +63,7 @@ public class HibernateSessionFactory {
 //        
 //        User user2 = new User();
 //        user2.setName("Igor Blackman");
-//        user2.setCity("Niterói");
+//        user2.setCity("NiterÃ³i");
 //        user2.setCountry("Brazil");
 //        user2.setHost(true);
 //        user2.setUsername("igorblackman");
@@ -59,7 +85,7 @@ public class HibernateSessionFactory {
 //        Rate rate = new Rate();
 //        rate.setSender(user);
 //        rate.setReceiver(user2);
-//        rate.setDescription("Ótima pessoa");
+//        rate.setDescription("Ã“tima pessoa");
 //        rate.setType(0);
 //        rate.setValue(4);
 //        rate.setCreated(new Date());
@@ -68,7 +94,7 @@ public class HibernateSessionFactory {
 //        rate = new Rate();
 //        rate.setSender(user3);
 //        rate.setReceiver(user2);
-//        rate.setDescription("Ótimo Host");
+//        rate.setDescription("Ã“timo Host");
 //        rate.setType(1);
 //        rate.setValue(5);
 //        rate.setCreated(new Date());
@@ -77,7 +103,7 @@ public class HibernateSessionFactory {
 //        rate = new Rate();
 //        rate.setSender(user);
 //        rate.setReceiver(user2);
-//        rate.setDescription("Péssimo Guest");
+//        rate.setDescription("PÃ©ssimo Guest");
 //        rate.setType(2);
 //        rate.setValue(1);
 //        rate.setCreated(new Date());
@@ -86,7 +112,7 @@ public class HibernateSessionFactory {
 //        rate = new Rate();
 //        rate.setSender(user);
 //        rate.setReceiver(user2);
-//        rate.setDescription("Médio SportGuest");
+//        rate.setDescription("MÃ©dio SportGuest");
 //        rate.setType(3);
 //        rate.setValue(3);
 //        rate.setCreated(new Date());
@@ -95,14 +121,14 @@ public class HibernateSessionFactory {
 //        rate = new Rate();
 //        rate.setSender(user);
 //        rate.setReceiver(user2);
-//        rate.setDescription("Ótimo SportHost");
+//        rate.setDescription("Ã“timo SportHost");
 //        rate.setType(4);
 //        rate.setValue(5);
 //        rate.setCreated(new Date());
 //        s.save(rate);
-        
-        
-        s.getTransaction().commit();
-	s.close();
-    }
+//        
+//        
+//        s.getTransaction().commit();
+//	s.close();
+//    }
 }
