@@ -1,3 +1,7 @@
-        <h1>Hello World! FOOTER</h1>
+<link rel="stylesheet" href="./CSS/Footer_estilo.css" type="text/css" /> 
 
+<div class="footer">
 
+    
+    
+</div>
