@@ -4,6 +4,14 @@
     Author     : caio
 --%>
         <jsp:include page="menu.jsp"/>
-        <h1>Hello World!</h1>
+        <form method="post" id="login" action="Login">
+           Login: <input type="text" id="usuario" name="usuario"/><br>
+           Senha: <input type="password" id="senha" name="senha"/><br>
+           <input type="submit" value="Entrar" /> <br>
+        </form>         
+        <%Boolean incorrect = (Boolean)request.getAttribute("incorrect"); 
+        if (incorrect!=null){%>
+        Usuario ou senha incorretos.
+        <%}%>
         <%@include file="footer.jsp" %>
 

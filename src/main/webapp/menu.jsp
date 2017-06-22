@@ -9,12 +9,14 @@
 <div class="menu">
 
     <div id="itens_menu">
-		<ul>
-                        <li><a href="index.jsp">Home</a></li>
-                        <li><a href="login.jsp">Login</a></li>
-			<li><a href="listaeventos.jsp">Lista de Eventos</a></li>
-                        <li><a href="ferramentasadm.jsp">Ferramentas Administrativas</a></li>
-		</ul>
-	</div>
+        <ul>
+            <li><a href="index.jsp">Home</a></li>
+            <%if (request.getSession().getAttribute("logou") == null){%>
+            <li><a href="login.jsp">Login</a></li>
+            <%}%>
+            <li><a href="listaeventos.jsp">Lista de Eventos</a></li>
+            <li><a href="ferramentasadm.jsp">Ferramentas Administrativas</a></li>
+        </ul>
+    </div>
     
 </div>

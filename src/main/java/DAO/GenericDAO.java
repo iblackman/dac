@@ -6,12 +6,8 @@
 package DAO;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.validation.Valid;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -43,11 +39,7 @@ public abstract class GenericDAO<T, I extends Serializable> {
      * @return 
      */
     public Session getSession(){
-        try {
-            session = HibernateSessionFactory.getSession();
-        } catch (ParseException ex) {
-            //Logger.getLogger(EventsDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        session = HibernateSessionFactory.getSession();
         return session;
     }
     /**
@@ -55,11 +47,7 @@ public abstract class GenericDAO<T, I extends Serializable> {
      * @return 
      */
     public Session getSessionTransaction(){
-        try {
-            session = HibernateSessionFactory.getSession();
-        } catch (ParseException ex) {
-            //Logger.getLogger(EventsDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        session = HibernateSessionFactory.getSession();
         transaction = session.beginTransaction();
         return session;
     }

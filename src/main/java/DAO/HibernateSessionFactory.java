@@ -6,10 +6,8 @@ import Model.Resources;
 import Model.Rooms;
 import Model.Users;
 import Model.Usertypes;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,7 +19,7 @@ public class HibernateSessionFactory {
 
     private static SessionFactory sessionFactory;
     
-    public static Session getSession() throws ParseException {
+    public static Session getSession(){
         if(sessionFactory == null){
             Configuration configuration = new Configuration();
             configuration.configure();
@@ -30,34 +28,9 @@ public class HibernateSessionFactory {
             fillDB();
         }
         return sessionFactory.openSession();
-    }
-    
-<<<<<<< HEAD
-    //Inserir os valores do DB
-    //Porque o banco vai criado toda vez que a aplicacaoo for feita
-    private static void fillDB(){
-        Session s = sessionFactory.openSession();//HibernateSessionFactory.getSession();
-        s.beginTransaction();
-        
-        Usertypes us = new Usertypes();
-        us.setName("User");
-        us.setPermission(1);
-        s.save(us);
-        
-        Users u = new Users();
-        u.setName("Blackman");
-        u.setEmail("Black@v.com.br");
-        u.setLogin("test");
-        u.setPassword("test");
-        u.setUsertypeid(us);
-        s.save(u); 
-        
-        s.getTransaction().commit();
-	s.close();
     }    
     
-    
-    private static void FillDB() throws ParseException{
+    private static void fillDB(){
         Session s = sessionFactory.openSession();
         s.beginTransaction();
         
@@ -77,10 +50,10 @@ public class HibernateSessionFactory {
         utGuest.setPermission(3);
         s.save(utGuest);
         
-		Usertypes us = new Usertypes();
-        us.setName("User");
-        us.setPermission(4);
-        s.save(us);
+        Usertypes utUser = new Usertypes();
+        utUser.setName("User");
+        utUser.setPermission(4);
+        s.save(utUser);
 		
         //usuario
         Users uAdm = new Users();
@@ -91,13 +64,13 @@ public class HibernateSessionFactory {
         uAdm.setUsertypeid(utAdm);
         s.save(uAdm);
         
-        Users u = new Users();
-        u.setName("Blackman");
-        u.setEmail("Black@v.com.br");
-        u.setLogin("test");
-        u.setPassword("test");
-        u.setUsertypeid(us);
-        s.save(u); 
+        Users uTest = new Users();
+        uTest.setName("Blackman");
+        uTest.setEmail("Black@v.com.br");
+        uTest.setLogin("test");
+        uTest.setPassword("test");
+        uTest.setUsertypeid(utUser);
+        s.save(uTest); 
 		
         //resource
         Resources resAr = new Resources();
@@ -122,19 +95,19 @@ public class HibernateSessionFactory {
         evtReuniao.setName("Reunião");
         s.save(evtReuniao);
         
-        //para gerar a data
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-        String dateInString1 = "31-08-2017 10:00:00";
-        String dateInString2 = "31-08-2017 16:00:00";
-        //Date date = sdf.parse(dateInString1);
-        
+                
+        //Mes são indexados com zeros
+        Calendar c = Calendar.getInstance();
+               
         //exemplo de evento
         Events ev = new Events();
         ev.setName("Evento");
         ev.setDescription("Descricao");
         ev.setMaxguests(10);
-        ev.setStartdt(sdf.parse(dateInString1));
-        ev.setEnddt(sdf.parse(dateInString2));
+        c.set(2017, 7, 31, 10, 0, 0);
+        ev.setStartdt(c.getTime());
+        c.set(2017, 7, 31, 16, 0, 0);
+        ev.setEnddt(c.getTime());
         ev.setEventtypeid(evtReuniao);
         ev.setRoomid(room201);
         List<Resources> lisResorEv = new ArrayList<>();
@@ -146,7 +119,7 @@ public class HibernateSessionFactory {
         
         
         s.getTransaction().commit();
-		s.close();
+        s.close();
     }
 
 }
