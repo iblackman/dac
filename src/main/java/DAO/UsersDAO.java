@@ -6,7 +6,11 @@
 package DAO;
 
 import Model.Users;
+import Model.Usertypes;
 import java.util.List;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -16,6 +20,8 @@ public class UsersDAO extends GenericDAO<Users, Integer>{
     public UsersDAO(){
         super(Users.class);
     }
+       
+    
     /**
      * retorna todos os Users
      * @return 

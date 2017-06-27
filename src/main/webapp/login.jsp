@@ -9,6 +9,7 @@
            Senha: <input type="password" id="senha" name="senha"/><br>
            <input type="submit" value="Entrar" /> <br>
         </form>         
+        <a href="cadastrarusuario.jsp">Cadastrar Usuario</a>
         <%Boolean incorrect = (Boolean)request.getAttribute("incorrect"); 
         if (incorrect!=null){%>
         Usuario ou senha incorretos.

@@ -48,13 +48,8 @@ public class HibernateSessionFactory {
         Usertypes utGuest = new Usertypes();
         utGuest.setName("Guest");
         utGuest.setPermission(3);
-        s.save(utGuest);
-        
-        Usertypes utUser = new Usertypes();
-        utUser.setName("User");
-        utUser.setPermission(4);
-        s.save(utUser);
-		
+        s.save(utGuest);        
+    		
         //usuario
         Users uAdm = new Users();
         uAdm.setEmail("adm@email.com");
@@ -69,7 +64,7 @@ public class HibernateSessionFactory {
         uTest.setEmail("Black@v.com.br");
         uTest.setLogin("test");
         uTest.setPassword("test");
-        uTest.setUsertypeid(utUser);
+        uTest.setUsertypeid(utGuest);
         s.save(uTest); 
 		
         //resource

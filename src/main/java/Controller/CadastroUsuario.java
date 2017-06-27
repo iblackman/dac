@@ -6,10 +6,11 @@
 package Controller;
 
 import DAO.LoginDAO;
+import DAO.UsersDAO;
+import DAO.UsertypesDAO;
 import Model.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thadeu Jose
  */
-public class Login extends HttpServlet {
+public class CadastroUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,15 +39,15 @@ public class Login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Login</title>");            
+            out.println("<title>Servlet CadastroUsuario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CadastroUsuario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
-   
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -76,16 +77,21 @@ public class Login extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         
-        Users user = LoginDAO.getLogin(request.getParameter("usuario"),request.getParameter("senha"));
+        UsertypesDAO ut = new UsertypesDAO();                
+        UsersDAO dao = new UsersDAO();
+        Users u = new Users();
         
-        if(user!=null){            
-            request.getSession().setAttribute("logou", true);            
-            request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
-        }
-        else{
-           request.setAttribute("incorrect",true);
-           request.getRequestDispatcher("login.jsp").include(request, response);
-        }
+        u.setEmail(request.getParameter("email"));
+        u.setLogin(request.getParameter("usuario"));
+        u.setName(request.getParameter("nome"));
+        u.setPassword(request.getParameter("senha"));
+        u.setUsertypeid(ut.findById(3));
+        
+        dao.save(u);
+        
+        request.setAttribute("cadastrou", true);          
+        request.getRequestDispatcher("cadastrarusuario.jsp").include(request, response);
+        
     }
 
     /**
