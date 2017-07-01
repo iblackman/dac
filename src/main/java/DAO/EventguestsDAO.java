@@ -7,7 +7,6 @@ package DAO;
 
 import Model.Eventguests;
 import java.util.List;
-
 /**
  *
  * @author Igor
