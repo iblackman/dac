@@ -13,17 +13,25 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"/>
-        <form method="post" id="login" action="CadastroUsuario">
-            Nome: <input type="text" id="nome" name="nome"/><br>
-            Email: <input type="text" id="email" name="email"/><br>
-            Login: <input type="text" id="usuario" name="usuario"/><br>
-            Senha: <input type="password" id="senha" name="senha"/><br>
-            <input type="submit" value="Cadastrar" /> <br>
-        </form>     
-        <%Boolean cadastrou = (Boolean)request.getAttribute("cadastrou"); 
-        if (cadastrou!=null){%>
+
+
+        <div id="conteudo">
+            <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
+
+
+            <form method="post" id="login" action="CadastroUsuario">
+                Nome: <br><input type="text" id="nome" name="nome"/><br>
+                Email:<br> <input type="text" id="email" name="email"/><br>
+                Login:<br> <input type="text" id="usuario" name="usuario"/><br>
+                Senha:<br> <input type="password" id="senha" name="senha"/><br><br>
+                <input type="submit" value="Cadastrar" /> <input type="button" onclick ="history.back()" value="Voltar" /> 
+            </form>
+        </div>
+        <%Boolean cadastrou = (Boolean) request.getAttribute("cadastrou");
+                if (cadastrou != null) {%>
         Usuario cadastrado com sucesso.
         <%}%>
+
         <%@include file="footer.jsp" %>
     </body>
 </html>
