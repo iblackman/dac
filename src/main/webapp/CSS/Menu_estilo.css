@@ -1,3 +1,9 @@
+conteudo{ 
+    width:50%;
+    margin:0 auto;   
+      background-color: red;
+}
+
 .menu{
     background-color: #2E8B57;
 
@@ -32,7 +38,9 @@
 
 }
 
-#itens_menu li { display: inline; }
+#itens_menu li { 
+    display: inline;
+    font-size:18px;}
 
 #itens_menu li a {
 
@@ -46,5 +54,7 @@
 #itens_menu ul li a:hover {
     background-color:white;
     color: #6D6D6D;
+    border-radius: 10px;
+    
 
 }
