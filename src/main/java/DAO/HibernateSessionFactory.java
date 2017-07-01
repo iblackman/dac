@@ -52,20 +52,28 @@ public class HibernateSessionFactory {
     		
         //usuario
         Users uAdm = new Users();
-        uAdm.setEmail("adm@email.com");
-        uAdm.setLogin("adm");
         uAdm.setName("ADM");
+        uAdm.setEmail("adm@email.com");
+        uAdm.setLogin("adm");        
         uAdm.setPassword("adm");
         uAdm.setUsertypeid(utAdm);
         s.save(uAdm);
         
-        Users uTest = new Users();
-        uTest.setName("Blackman");
-        uTest.setEmail("Black@v.com.br");
-        uTest.setLogin("test");
-        uTest.setPassword("test");
-        uTest.setUsertypeid(utGuest);
-        s.save(uTest); 
+        Users uTest1 = new Users();
+        uTest1.setName("Caio");
+        uTest1.setEmail("Caiok@v.com.br");
+        uTest1.setLogin("guest");
+        uTest1.setPassword("guest");
+        uTest1.setUsertypeid(utGuest);
+        s.save(uTest1);
+        
+        Users uTest2 = new Users();
+        uTest2.setName("Blackman");
+        uTest2.setEmail("Black@v.com.br");
+        uTest2.setLogin("host");
+        uTest2.setPassword("host");
+        uTest2.setUsertypeid(utHost);
+        s.save(uTest2); 
 		
         //resource
         Resources resAr = new Resources();

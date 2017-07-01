@@ -79,8 +79,9 @@ public class Login extends HttpServlet {
         Users user = LoginDAO.getLogin(request.getParameter("usuario"),request.getParameter("senha"));
         
         if(user!=null){            
-            request.getSession().setAttribute("logou", true);            
-            request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
+            request.getSession().setAttribute("logou", true); 
+            request.getSession().setAttribute("permissao", user.getUsertypeid().getPermission());
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
         else{
            request.setAttribute("incorrect",true);

@@ -15,10 +15,15 @@
             <%if (request.getSession().getAttribute("logou") == null){%>
             <li><a href="login.jsp">Login</a></li>
             <%}%>
-            <%if (request.getSession().getAttribute("logou") != null){%>
+            <%if ((request.getSession().getAttribute("logou") != null) && (request.getSession().getAttribute("permissao") != null) && ((Integer)request.getSession().getAttribute("permissao") == 1)){%>
             <li><a href="ferramentasadm.jsp">Ferramentas Administrativas</a></li>
             <%}%>
-            
+            <%if (request.getSession().getAttribute("logou") != null && (request.getSession().getAttribute("permissao") != null) && (((Integer)request.getSession().getAttribute("permissao") == 3)||((Integer)request.getSession().getAttribute("permissao") == 2))){%>
+            <li><a href="ferramentasadm.jsp">Inscrever-se em evento</a></li>
+            <%}%>
+            <%if (request.getSession().getAttribute("logou") != null && (request.getSession().getAttribute("permissao") != null) && ((Integer)request.getSession().getAttribute("permissao") == 2)){%>
+            <li><a href="criarevento.jsp">Gerenciar Evento</a></li>
+            <%}%>
         </ul>
     </div>
     
