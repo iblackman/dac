@@ -8,6 +8,7 @@ package DAO;
 import Model.Events;
 import Model.Rooms;
 import Model.StatusEvent;
+import Model.Users;
 import java.util.Date;
 import java.util.List;
 
@@ -42,6 +43,12 @@ public class EventsDAO extends GenericDAO<Events, Integer>{
     public List<Events> findWaiting(){
         return (List<Events>) getSession().createQuery("FROM Events WHERE status = :status")
                 .setParameter("status", StatusEvent.WAITING)
+                .list();
+    }
+    
+    public List<Events> findByUser(Users user){
+        return (List<Events>) getSession().createQuery("FROM Events WHERE userid = :user")
+                .setParameter("user", user)
                 .list();
     }
 }
