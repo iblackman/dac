@@ -1,12 +1,15 @@
-<%-- 
-    Document   : CriarEventos
-    Created on : 20/06/2017, 21:43:58
-    Author     : caio
---%>
+<%@include file="menu.jsp" %>
 
-        <%@include file="fenu.jsp" %>
+<h1>CRIAR EVENTOS</h1>
 
-        <h1>CRIAR EVENTOS</h1>
+<link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
 
-        <%@include file="footer.jsp" %>
+
+
+<form method="get" action="criarEvento_salas">
+    Data do Evento: <br><input type="date" id="dataEv" name="dataEv"/><br><br>
+    1/2 <input type="submit" value="Escolher Sala" /> <br>
+</form>   
+
+<%@include file="footer.jsp" %>
 
