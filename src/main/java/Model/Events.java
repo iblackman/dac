@@ -79,7 +79,7 @@ public class Events implements Serializable {
     @Column(name = "MAXGUESTS")
     private int maxguests;
     @Column(name = "STATUS")
-    private Integer status;
+    private StatusEvent status;
     @JoinTable(name = "EVENTUSERTYPES", joinColumns = {
         @JoinColumn(name = "EVENTID", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "USERTYPEID", referencedColumnName = "ID")})
@@ -105,7 +105,7 @@ public class Events implements Serializable {
     public Events() {
     }
 
-    public Events( String name, String description, int status, Date startdt, Date enddt, int maxguests) {
+    public Events( String name, String description, StatusEvent status, Date startdt, Date enddt, int maxguests) {
         this.name = name;
         this.description = description;
         this.status = status;
@@ -162,11 +162,11 @@ public class Events implements Serializable {
         this.maxguests = maxguests;
     }
 
-    public Integer getStatus() {
+    public StatusEvent getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(StatusEvent status) {
         this.status = status;
     }
 
@@ -213,7 +213,7 @@ public class Events implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Eventguests> getEventguestsCollection() {
+    public Collection<Eventguests> getEventguests() {
         return eventguestsCollection;
     }
 
