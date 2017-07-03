@@ -39,7 +39,7 @@ public class Eventguests implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "STATUS")
-    private int status;
+    private StatusEventGuest status;
     @Column(name = "PRESENCE")
     private Integer presence;
     @JoinColumn(name = "EVENTID", referencedColumnName = "ID", insertable = false, updatable = false)
@@ -56,7 +56,7 @@ public class Eventguests implements Serializable {
         this.eventguestsPK = eventguestsPK;
     }
 
-    public Eventguests(EventguestsPK eventguestsPK, int status) {
+    public Eventguests(EventguestsPK eventguestsPK, StatusEventGuest status) {
         this.eventguestsPK = eventguestsPK;
         this.status = status;
     }
@@ -73,11 +73,11 @@ public class Eventguests implements Serializable {
         this.eventguestsPK = eventguestsPK;
     }
 
-    public int getStatus() {
+    public StatusEventGuest getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(StatusEventGuest status) {
         this.status = status;
     }
 
