@@ -52,17 +52,12 @@ public class Eventguests implements Serializable {
     public Eventguests() {
     }
 
-    public Eventguests(EventguestsPK eventguestsPK) {
-        this.eventguestsPK = eventguestsPK;
-    }
-
-    public Eventguests(EventguestsPK eventguestsPK, StatusEventGuest status) {
-        this.eventguestsPK = eventguestsPK;
-        this.status = status;
-    }
-
-    public Eventguests(int eventid, int userid) {
-        this.eventguestsPK = new EventguestsPK(eventid, userid);
+    public Eventguests(Events event, Users user) {
+        this.eventguestsPK = new EventguestsPK(event.getId(), user.getId());
+        this.events = event;
+        this.users = user;
+        this.presence = 0;
+        this.status = StatusEventGuest.WAITING;
     }
 
     public EventguestsPK getEventguestsPK() {
