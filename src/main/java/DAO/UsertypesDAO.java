@@ -21,7 +21,7 @@ public class UsertypesDAO extends GenericDAO<Usertypes, Integer>{
      * @return 
      */
     public List<Usertypes> findAll(){
-        List<Usertypes> usertypes = (List<Usertypes>) getSession().createQuery("FROM USERTYPES").list();
+        List<Usertypes> usertypes = (List<Usertypes>) getSession().createQuery("FROM Usertypes").list();
         return usertypes;
     }
 }

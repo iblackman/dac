@@ -21,7 +21,7 @@ public class ResourcesDAO extends GenericDAO<Resources, Integer>{
      * @return 
      */
     public List<Resources> findAll(){
-        List<Resources> resources = (List<Resources>) getSession().createQuery("FROM RESOURCES").list();
+        List<Resources> resources = (List<Resources>) getSession().createQuery("FROM Resources").list();
         return resources;
     }
 }

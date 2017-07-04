@@ -21,7 +21,7 @@ public class EventtypesDAO extends GenericDAO<Eventtypes, Integer>{
      * @return 
      */
     public List<Eventtypes> findAll(){
-        List<Eventtypes> eventtypes = (List<Eventtypes>) getSession().createQuery("FROM EVENTTYPES").list();
+        List<Eventtypes> eventtypes = (List<Eventtypes>) getSession().createQuery("FROM Eventtypes").list();
         return eventtypes;
     }
 }
