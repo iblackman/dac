@@ -29,12 +29,22 @@ public class criarEvento_salas extends HttpServlet {
         } catch (ParseException ex) {
             Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+          Date dataFim = null;
+        try {
+            dataFim = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("dataFim"));
+        } catch (ParseException ex) {
+            Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         RoomsDAO salas = new RoomsDAO();
-        List<Rooms> rooms = salas.findAvailableByDate(dataEv);
+        List<Rooms> rooms = salas.findAvailableByDate(dataEv,dataFim);
         
         request.setAttribute("dataEv", dataEv);
+        request.setAttribute("dataFim", dataFim);
         request.setAttribute("listSalas", rooms);
+        
         request.getRequestDispatcher("criarEventos_infos.jsp").forward(request, response);
 
     }
