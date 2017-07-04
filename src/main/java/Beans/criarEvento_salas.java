@@ -31,7 +31,7 @@ public class criarEvento_salas extends HttpServlet {
         }
 
         RoomsDAO salas = new RoomsDAO();
-        List<Rooms> rooms = salas.findAll();
+        List<Rooms> rooms = salas.findAvailableByDate(dataEv);
         
         request.setAttribute("dataEv", dataEv);
         request.setAttribute("listSalas", rooms);

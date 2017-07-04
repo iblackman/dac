@@ -20,11 +20,11 @@ import javax.faces.bean.ManagedProperty;
 @ManagedBean
 @ApplicationScoped
 public class MyLoginBean {
-    
+
     private String login;
     private String password;
-    private Users user;
-        
+    static private Users user;
+
     /**
      * Creates a new instance of LoginBean
      */
@@ -46,16 +46,16 @@ public class MyLoginBean {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public Users getUser() {
+
+    static public Users getUser() {
         return user;
     }
-    
-    public String executeLogin(){   
-        this.user = LoginDAO.getLogin(this.login,this.password);        
-        if(this.user!=null){            
+
+    public String executeLogin() {
+        this.user = LoginDAO.getLogin(this.login, this.password);
+        if (this.user != null) {
             return "event.xhtml";
-        }   
+        }
         return "index.xhtml";
     }
 }

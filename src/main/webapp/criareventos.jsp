@@ -7,7 +7,8 @@
 
 
 <form method="get" action="criarEvento_salas">
-    Data do Evento: <br><input type="date" id="dataEv" name="dataEv"/><br><br>
+    Data do INICIO do Evento: <br><input type="date" id="dataIn" name="dataIn"/><br><br>
+    Data do FIM do Evento: <br><input type="date" id="dataFim" name="dataFim"/><br><br>
     1/2 <input type="submit" value="Escolher Sala" /> <br>
 </form>   
 

@@ -22,7 +22,7 @@ public class EventguestsDAO extends GenericDAO<Eventguests, Integer>{
      * @return 
      */
     public List<Eventguests> findAll(){
-        List<Eventguests> eventguests = (List<Eventguests>) getSession().createQuery("FROM EVENTGUESTS").list();
+        List<Eventguests> eventguests = (List<Eventguests>) getSession().createQuery("FROM Eventguests").list();
         return eventguests;
     }
     /**
@@ -31,7 +31,7 @@ public class EventguestsDAO extends GenericDAO<Eventguests, Integer>{
      * @return 
      */
     public List<Eventguests> findByUser(Users user){
-        return (List<Eventguests>) getSession().createQuery("FROM EVENTGUESTS WHERE users = :user")
+        return (List<Eventguests>) getSession().createQuery("FROM Eventguests WHERE users = :user")
                 .setParameter("user", user)
                 .list();
     }
@@ -41,7 +41,7 @@ public class EventguestsDAO extends GenericDAO<Eventguests, Integer>{
      * @return 
      */
     public List<Eventguests> findByEvent(Events event){
-        return (List<Eventguests>) getSession().createQuery("FROM EVENTGUESTS WHERE events = :event")
+        return (List<Eventguests>) getSession().createQuery("FROM Eventguests WHERE events = :event")
                 .setParameter("event", event)
                 .list();
     }
