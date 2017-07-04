@@ -20,18 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author caio
  */
-@WebServlet(name = "cancelarInscricao", urlPatterns = {"/cancelarInscricao"})
-public class cancelarInscricao extends HttpServlet {
+@WebServlet(name = "listEventInsc", urlPatterns = {"/listEventInsc"})
+public class listEventInsc extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,8 +34,8 @@ public class cancelarInscricao extends HttpServlet {
        
         
         List<Events> list = event.findByEventguestUser(user);
-         request.setAttribute("list", list);
-        request.getRequestDispatcher("cancelarinscricao.jsp").forward(request, response);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("listEventInsc.jsp").forward(request, response);
         
         
     }

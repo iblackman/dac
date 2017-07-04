@@ -22,14 +22,19 @@
                     <tr> 
                         <td>${evento.getName()}</td>            
                         <td>${evento.getStartdt()}</td>
-                        <td><button>Cancelar Inscrição</button></td>
+                        <td> ${evento.getId()}<form method="post" action="cacelarEvent">
+
+                                <input type="submit" value="X">
+                                <input type="hidden" value="${evento.getId()}" name="idEv"/>
+                            </form>
+                        </td>
                     </tr> 
                 </c:forEach> 
 
             </c:if>
-    <c:if test="${list.isEmpty()}"> 
-        Você não possui nenhuma inscrição em eventos!
-    </c:if>
+            <c:if test="${list.isEmpty()}">
+                Você não possui nenhuma inscrição em eventos!
+            </c:if>
 
         </tbody>
     </table> 

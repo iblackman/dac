@@ -17,15 +17,15 @@
                     out.print("<table><thead><tr><th>Participação</th></tr></thead>");
                     out.print("<tdoby>");
                     out.print("<tr><td><a href = \"criareventos.jsp\">Criar Eventos</a></td></tr>");
-                    out.print("<tr><td><a href = \"cancelarInscricao\">Cancelar inscrição em Eventos</a></td></tr>");
+                    out.print("<tr><td><a href = \"listEventInsc\">Cancelar inscrição em Eventos</a></td></tr>");
                     out.print("<tr><td><a href = \"\">Inscrição em Eventos</a></td></tr>");
                     out.print("</tdoby></table>");
                 }
                 if (a >= 1) {
                     out.print("<table><thead><tr><th>Controle</th></tr></thead>");
                     out.print("<tdoby>");
-                    out.print("<tr><td><a href = \"\">Lista de Inscritos</a></td></tr>");
-                    out.print("<tr><td><a href = \"\">Controle de Presença</a></td></tr>");
+                    out.print("<tr><td><a href = \"listEveDoHost\">Controle de Inscritos</a></td></tr>");
+
                     out.print("</tdoby></table>");
 
                 }
