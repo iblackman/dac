@@ -24,7 +24,7 @@ public class RoomsDAO extends GenericDAO<Rooms, Integer>{
      * @return 
      */
     public List<Rooms> findAll(){
-        List<Rooms> rooms = (List<Rooms>) getSession().createQuery("FROM ROOMS").list();
+        List<Rooms> rooms = (List<Rooms>) getSession().createQuery("from Rooms").list();
         return rooms;
     }
     

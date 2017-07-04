@@ -29,6 +29,8 @@
         Users user = udao.findById(1);
         %>
         <p><%=user.getName()%></p>
+        <p><%=user.getUsertypeid()%></p>
+
         
         <%
             //Testes apenas, esta errado fazer desse jeito, o controller (servlet) que deve processar (pelo menos eu acho)
