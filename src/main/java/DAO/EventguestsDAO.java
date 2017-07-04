@@ -6,6 +6,7 @@
 package DAO;
 
 import Model.Eventguests;
+import Model.Users;
 import java.util.List;
 /**
  *
@@ -22,5 +23,11 @@ public class EventguestsDAO extends GenericDAO<Eventguests, Integer>{
     public List<Eventguests> findAll(){
         List<Eventguests> eventguests = (List<Eventguests>) getSession().createQuery("FROM EVENTGUESTS").list();
         return eventguests;
+    }
+    
+    public List<Eventguests> findByUser(Users user){
+        return (List<Eventguests>) getSession().createQuery("FROM EVENTGUESTS WHERE users = :user")
+                .setParameter("user", user)
+                .list();
     }
 }

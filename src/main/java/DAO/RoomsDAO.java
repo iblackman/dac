@@ -5,7 +5,10 @@
  */
 package DAO;
 
+import Model.Events;
 import Model.Rooms;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,5 +26,19 @@ public class RoomsDAO extends GenericDAO<Rooms, Integer>{
     public List<Rooms> findAll(){
         List<Rooms> rooms = (List<Rooms>) getSession().createQuery("from Rooms").list();
         return rooms;
+    }
+    
+    public List<Rooms> findAvailableByDate(Date date){
+        List<Rooms> rooms = findAll();
+        List<Rooms> result = new ArrayList<>();
+        for (Rooms room : rooms){
+            //busca por evento naquela sala e naquela data
+            List<Events> events = new EventsDAO().findByRoomByDate(room, date);
+            //se nao existir e' prq esta vazia, entao inclui na resposta
+            if (events.isEmpty()){
+                result.add(room);
+            }
+        }
+        return result;
     }
 }
