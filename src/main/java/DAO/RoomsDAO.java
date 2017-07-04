@@ -28,12 +28,12 @@ public class RoomsDAO extends GenericDAO<Rooms, Integer>{
         return rooms;
     }
     
-    public List<Rooms> findAvailableByDate(Date date){
+    public List<Rooms> findAvailableByDate(Date dateStart, Date dateEnd ){
         List<Rooms> rooms = findAll();
         List<Rooms> result = new ArrayList<>();
         for (Rooms room : rooms){
             //busca por evento naquela sala e naquela data
-            List<Events> events = new EventsDAO().findByRoomByDate(room, date);
+            List<Events> events = new EventsDAO().findByRoomByDate(room, dateStart, dateEnd);
             //se nao existir e' prq esta vazia, entao inclui na resposta
             if (events.isEmpty()){
                 result.add(room);
