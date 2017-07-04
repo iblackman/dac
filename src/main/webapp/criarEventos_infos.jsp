@@ -10,11 +10,11 @@
 Data do Evento: <%= request.getParameter("dataEv")%><br>
 <br>
 <form method="post" action="criarEventos_criar">
-    <input type="hiden" id="iniIns" value="<%= request.getParameter("dataEv")%>" name="data"/>
+
     Nome do Evento: <br><input type="text" id="nomeEv" name="nomeEv"/><br>
     Descrição do Evento: <br><input type="textarea" id="descEv" name="descEv"/><br>
-    Inicio das inscrições: <br><input type="date" id="iniIns" name="iniIns"/><br>
-    Fim das inscrições: <br><input type="date" id="fimIns" name="fimIns"/><br>
+    Inicio do Evento: <br><input type="date" id="iniIns" name="iniIns"/><br>
+    Fim do Evento: <br><input type="date" id="fimIns" name="fimIns"/><br>
     Sala:<select id="sala" name="salaID">
         <c:forEach items="${listSalas}" var="sala">            
             <option value="${sala.getId()}">${sala.getName()}</option>
