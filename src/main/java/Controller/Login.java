@@ -81,6 +81,7 @@ public class Login extends HttpServlet {
         if(user!=null){            
             request.getSession().setAttribute("logou", true); 
             request.getSession().setAttribute("permissao", user.getUsertypeid().getPermission());
+            request.getSession().setAttribute("user", user);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
         else{

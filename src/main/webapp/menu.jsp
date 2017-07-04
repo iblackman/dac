@@ -24,6 +24,9 @@
             <%if (request.getSession().getAttribute("logou") != null && (request.getSession().getAttribute("permissao") != null) && ((Integer)request.getSession().getAttribute("permissao") == 2)){%>
             <li><a href="criarevento.jsp">Gerenciar Evento</a></li>
             <%}%>
+            <% if(session.getAttribute("user") != null) {%>
+            <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+            <%}%>
         </ul>
     </div>
     
