@@ -7,6 +7,7 @@ package Beans;
 
 import DAO.EventsDAO;
 import Model.Events;
+import Model.Users;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -35,8 +36,12 @@ public class cancelarInscricao extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         EventsDAO event = new EventsDAO();
-        List<Events> list = event.findByEventguestUser(MyLoginBean.getUser());
+
+        Users user = (Users) request.getSession().getAttribute("user");
         
+       
+        
+        List<Events> list = event.findByEventguestUser(user);
          request.setAttribute("list", list);
         request.getRequestDispatcher("cancelarinscricao.jsp").forward(request, response);
         

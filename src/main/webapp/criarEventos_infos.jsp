@@ -7,19 +7,16 @@
 <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
 
 
-Data do Evento: <%= request.getParameter("dataEv")%><br>
+Data Inicio do Evento: <%= request.getParameter("dataEv")%><br>
+Data Fim do Evento: <%= request.getParameter("dataFim")%><br>
 <br>
 <form method="post" action="criarEventos_criar">
 
     Nome do Evento: <br><input type="text" id="nomeEv" name="nomeEv"/><br>
     Descrição do Evento: <br><input type="textarea" id="descEv" name="descEv"/><br>
-    Inicio do Evento: <br><input type="date" id="iniIns" name="iniIns"/><br>
-    Fim do Evento: <br><input type="date" id="fimIns" name="fimIns"/><br>
     Sala:<select id="sala" name="salaID">
         <c:forEach items="${listSalas}" var="sala">            
-            <option value="${sala.getId()}">${sala.getName()}</option>
-            
-            
+            <option value="${sala.getId()}">${sala.getName()}</option>          
         </c:forEach> 
     </select>
 
