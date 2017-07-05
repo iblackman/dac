@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.EventsDAO;
 import Model.Events;
+import Model.StatusEvent;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,22 +16,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet(name = "cacelarEvent", urlPatterns = {"/cacelarEvent"})
-public class cacelarEvent extends HttpServlet {
-
+@WebServlet(name = "aprovarEvento", urlPatterns = {"/aprovarEvento"})
+public class aprovarEvento extends HttpServlet {
+    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        EventsDAO ev = new EventsDAO();
-        int id = Integer.parseInt(request.getParameter("idEv"));
-        ev.delete(id);
-     
-     
-     request.getRequestDispatcher("listEventInsc.jsp").forward(request, response);
         
+        int idEv = Integer.parseInt(request.getParameter("idEv"));
         
+        EventsDAO evDao = new EventsDAO();
         
+        Events ev = evDao.findById(idEv);
+        
+       ev.setStatus(StatusEvent.CREATED);
+       
+       
+       request.getRequestDispatcher("ListarEventosWaitStatus").forward(request, response);
     }
-
+    
 }

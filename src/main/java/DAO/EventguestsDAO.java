@@ -45,4 +45,10 @@ public class EventguestsDAO extends GenericDAO<Eventguests, Integer>{
                 .setParameter("event", event)
                 .list();
     }
+    
+        public List<Eventguests> findByEventUser(Events event,Users user ){
+        return (List<Eventguests>) getSession().createQuery("FROM Eventguests WHERE events = :event and users = :user ")
+                .setParameter("event", event)
+                .list();
+    }
 }

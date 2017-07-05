@@ -5,7 +5,9 @@
  */
 package Beans;
 
+import DAO.EventguestsDAO;
 import DAO.EventsDAO;
+import Model.Eventguests;
 import Model.Events;
 import Model.Users;
 import java.io.IOException;
@@ -29,7 +31,7 @@ public class listEventInsc extends HttpServlet {
             throws ServletException, IOException {
         EventsDAO event = new EventsDAO();
 
-        Users user = (Users) request.getSession().getAttribute("user");
+        Users user = (Users)request.getSession().getAttribute("user");
         
        
         

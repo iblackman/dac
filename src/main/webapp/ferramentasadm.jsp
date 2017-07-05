@@ -33,7 +33,7 @@
 
                     out.print("<table><thead><tr><th>Aprovação</th></tr></thead>");
                     out.print("<tdoby>");
-                    out.print("<tr><td><a href = \"\">Aprovação de Eventos</a></td></tr>");
+                    out.print("<tr><td><a href = \"ListarEventosWaitStatus\">Aprovação de Eventos</a></td></tr>");
                     out.print("</tdoby></table>");
                 }
             %>

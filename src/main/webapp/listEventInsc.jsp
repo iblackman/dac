@@ -22,10 +22,11 @@
                     <tr> 
                         <td>${evento.getName()}</td>            
                         <td>${evento.getStartdt()}</td>
-                        <td> ${evento.getId()}<form method="post" action="cacelarEvent">
+                        <td>
+                            <form method="post" action="cancelarEvent">
 
                                 <input type="submit" value="X">
-                                <input type="hidden" value="${evento.getId()}" name="idEv"/>
+                                <input type="hidden" value="${evento}" name="idEv"/>
                             </form>
                         </td>
                     </tr> 
