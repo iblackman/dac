@@ -118,7 +118,7 @@ public class HibernateSessionFactory {
         lisResorEv.add(resQuadro);
         ev.setResourcesCollection(lisResorEv);
         ev.setUserid(uAdm);
-        ev.setStatus(StatusEvent.CREATED);// (1-criado, 2-Aguardando aprovacao, 3-Cancelado) 
+        ev.setStatus(StatusEvent.WAITING);// (1-criado, 2-Aguardando aprovacao, 3-Cancelado) 
         s.save(ev);
         
         

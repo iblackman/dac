@@ -20,6 +20,7 @@ public class listarEventos extends HttpServlet {
         EventsDAO edao = new EventsDAO();
         List<Events> list = edao.findAll();
         request.setAttribute("listaDeEventos", list);
+        System.out.println("merda");
         request.getRequestDispatcher("listaeventos.jsp").forward(request, response);
     }
 

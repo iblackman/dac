@@ -18,7 +18,7 @@
                 <th>Inicio</th>
                 <th>Fim</th>
                 <th>Aprovar</th>
-                <th>Deletar<th>
+                <th>Deletar</th>
             </tr>
         </thead>
         <tbody>

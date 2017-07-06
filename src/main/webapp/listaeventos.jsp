@@ -8,6 +8,7 @@
 <%@page import="java.util.ArrayList"%>
 <jsp:include page="menu.jsp"/>
 <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
+
 <div id="conteudo"> 
     <h1> LISTA </h1>
     <table id="listagem" >
