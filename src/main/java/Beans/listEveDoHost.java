@@ -30,9 +30,10 @@ public class listEveDoHost extends HttpServlet {
             throws ServletException, IOException {
       EventsDAO evDao = new EventsDAO();
       Users user = (Users) request.getSession().getAttribute("user");
-         List<Events> list = evDao.findByEventguestUser(user);
-      request.setAttribute("listaDeEventos", list);
-        request.getRequestDispatcher("listEveDoHost.jsp").forward(request, response); 
+      List<Events> list = evDao.findByEventguestUser(user);
+      
+      request.setAttribute("list", list);
+      request.getRequestDispatcher("listEveDoHost.jsp").forward(request, response); 
         
         
     }

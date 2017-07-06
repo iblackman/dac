@@ -23,11 +23,9 @@ public class ListarEventosWaitStatus extends HttpServlet {
             throws ServletException, IOException {
 
         EventsDAO evDao = new EventsDAO();
-
         List<Events> listEv = evDao.findWaiting();
 
-        request.setAttribute("listEv", listEv);
-
+        request.setAttribute("list", listEv);
         request.getRequestDispatcher("aprovarEvento.jsp").forward(request, response);
 
     }

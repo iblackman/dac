@@ -27,7 +27,10 @@ public class EventsDAO extends GenericDAO<Events, Integer>{
      * @return 
      */
     public List<Events> findAll(){
-        List<Events> events = (List<Events>) getSession().createQuery("from Events").list();
+        List<Events> events = (List<Events>) getSession().createQuery("from Events WHERE status = :status")
+                .setParameter("status", StatusEvent.CREATED)
+                .list();
+        
         return events;
     }
     

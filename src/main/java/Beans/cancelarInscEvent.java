@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "cancelarEvent", urlPatterns = {"/cancelarEvent"})
-public class cancelarEvent extends HttpServlet {
+@WebServlet(name = "cancelarInscEvent", urlPatterns = {"/cancelarInscEvent"})
+public class cancelarInscEvent extends HttpServlet {
 
     @Override
     @SuppressWarnings("empty-statement")

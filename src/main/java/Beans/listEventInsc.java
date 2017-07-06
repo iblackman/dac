@@ -29,13 +29,11 @@ public class listEventInsc extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        EventsDAO event = new EventsDAO();
-
-        Users user = (Users)request.getSession().getAttribute("user");
-        
        
-        
+        EventsDAO event = new EventsDAO();
+        Users user = (Users)request.getSession().getAttribute("user");   
         List<Events> list = event.findByEventguestUser(user);
+       
         request.setAttribute("list", list);
         request.getRequestDispatcher("listEventInsc.jsp").forward(request, response);
         
