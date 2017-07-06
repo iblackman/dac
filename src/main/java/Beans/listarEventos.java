@@ -3,7 +3,7 @@ package Beans;
 import DAO.EventsDAO;
 import Model.Events;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,8 +20,13 @@ public class listarEventos extends HttpServlet {
        
         EventsDAO edao = new EventsDAO();
         List<Events> list = edao.findAll();
+
       
         request.setAttribute("list", list);
+
+        request.setAttribute("listaDeEventos", list);
+        System.out.println("merda");
+
         request.getRequestDispatcher("listaeventos.jsp").forward(request, response);
     }
 
