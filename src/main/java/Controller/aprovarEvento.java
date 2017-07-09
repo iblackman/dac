@@ -29,7 +29,7 @@ public class aprovarEvento extends HttpServlet {
 
         ev.setStatus(StatusEvent.CREATED);
 
-        ev = evDao.save(ev);
+        evDao.save(ev);
 
         request.getRequestDispatcher("ListarEventosWaitStatus").forward(request, response);
     }

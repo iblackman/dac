@@ -23,7 +23,7 @@ public abstract class GenericDAO<T, I extends Serializable> {
 
     private Class<T> persistedClass;
     
-    private Session session;
+    static private Session session = HibernateSessionFactory.getSession();
     private Transaction transaction;
 
     protected GenericDAO() {
@@ -39,7 +39,7 @@ public abstract class GenericDAO<T, I extends Serializable> {
      * @return 
      */
     public Session getSession(){
-        session = HibernateSessionFactory.getSession();
+        //session = HibernateSessionFactory.getSession();
         return session;
     }
     /**
@@ -47,7 +47,7 @@ public abstract class GenericDAO<T, I extends Serializable> {
      * @return 
      */
     public Session getSessionTransaction(){
-        session = HibernateSessionFactory.getSession();
+        //session = HibernateSessionFactory.getSession();
         transaction = session.beginTransaction();
         return session;
     }
@@ -62,7 +62,7 @@ public abstract class GenericDAO<T, I extends Serializable> {
      */
     public void closeSessionTransaction(){
         transaction.commit();
-        session.close();
+        //session.close();
     }
     /**
      * create ou update do objeto
