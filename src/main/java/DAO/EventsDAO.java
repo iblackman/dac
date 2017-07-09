@@ -73,4 +73,6 @@ public class EventsDAO extends GenericDAO<Events, Integer>{
         }
         return result;
     }
+    
+
 }

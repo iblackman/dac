@@ -82,7 +82,7 @@ public class Login extends HttpServlet {
             request.getSession().setAttribute("logou", true); 
             request.getSession().setAttribute("permissao", user.getUsertypeid().getPermission());
             request.getSession().setAttribute("user", user);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
         }
         else{
            request.setAttribute("incorrect",true);

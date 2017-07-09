@@ -49,6 +49,8 @@
                     </c:forEach> 
                 </tbody>
             </table> 
+            <br>
+            <input type="button" onclick ="history.back()" value="Voltar" />
 
         </c:when>
 

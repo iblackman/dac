@@ -18,10 +18,13 @@ public class LoginDAO {
     
     //Returna o usuario ou null se nao tem
     public static Users getLogin(String user, String password){
+        
+        
         Session session = HibernateSessionFactory.getSession();
         Criteria crit = session.createCriteria(Users.class);
         crit.add(Restrictions.eq("login",user));
         crit.add(Restrictions.eq("password",password));
+
         return (Users)crit.uniqueResult();
         
     }
