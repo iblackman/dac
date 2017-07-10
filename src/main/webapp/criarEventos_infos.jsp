@@ -7,9 +7,14 @@
 <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
 
 
-Data Inicio do Evento: <%= request.getParameter("dataEv")%><br>
-Data Fim do Evento: <%= request.getParameter("dataFim")%><br>
-<br>
+Inicio do Evento: <br>
+<%= request.getParameter("dataIn")%><br>
+
+Fim do Evento:<br>
+<%= request.getParameter("dataFim")%><br>
+<br><br>
+
+
 <form method="post" action="criarEventos_criar">
 
     Nome do Evento: <br><input type="text" id="nomeEv" name="nomeEv"/><br>
@@ -19,7 +24,8 @@ Data Fim do Evento: <%= request.getParameter("dataFim")%><br>
             <option value="${sala.getId()}">${sala.getName()}</option>          
         </c:forEach> 
     </select>
-
+    <input type="hidden" value="<%= request.getParameter("dataIn")%>" id="dataIn" name="dataIn"/>
+    <input type="hidden" value="<%= request.getParameter("dataFim")%>" id="dataFim" name="dataFim"/>
     <br>  <br><input type="submit" value="Criar" /> <br>
 </form>    
 

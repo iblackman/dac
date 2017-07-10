@@ -7,8 +7,16 @@
 
 
 <form method="get" action="criarEvento_salas">
-    Data do INICIO do Evento: <br><input type="date" id="dataIn" name="dataIn"/><br><br>
-    Data do FIM do Evento: <br><input type="date" id="dataFim" name="dataFim"/><br><br>
+    INICIO do Evento: <br>
+    Data: <input type="date" id="dataIn" name="dataIn"/><br>
+    Hora: <input type="time" id="horaIn" name="horaIn"/><br>
+    <br>
+    <br>
+    FIM do Evento: <br>
+    Data: <input type="date" id="dataFim" name="dataFim"/><br>
+    Hora: <input type="time" id="horaFim" name="horaFim"/><br>
+    <br>
+    <br>
     1/2 <input type="submit" value="Escolher Sala" /> <br>
 </form>   
 

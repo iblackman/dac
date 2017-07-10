@@ -1,5 +1,10 @@
 package Beans;
 
+import DAO.EventsDAO;
+import DAO.RoomsDAO;
+import Model.Events;
+import Model.Rooms;
+import static Model.StatusEvent.WAITING;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
@@ -21,9 +26,9 @@ public class criarEventos_criar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Date dataEv = null;
+        Date dataIn = null;
         try {
-            dataEv = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("dataEv"));
+            dataIn = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("dataIn"));
         } catch (ParseException ex) {
             Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -37,19 +42,23 @@ public class criarEventos_criar extends HttpServlet {
 
         String nomeEv = request.getParameter("nomeEv");
         String descEv = request.getParameter("descEv");
-        Date iniIns = null;
-        try {
-            iniIns = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("iniIns"));
-        } catch (ParseException ex) {
-            Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Date fimIns = null;
-        try {
-            fimIns = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("fimIns"));
-        } catch (ParseException ex) {
-            Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        int salaID = parseInt(request.getParameter("salaID"));
+        
+
+     //   int sala = parseInt(request.getParameter("salaID"));
+       // RoomsDAO rDao = new RoomsDAO();
+        //Rooms r = rDao.findById(sala);
+        
+        
+        int cap = 20;
+        
+        Events ev = new Events(nomeEv,descEv,WAITING, dataIn,dataFim,cap );
+
+        
+        EventsDAO evD = new EventsDAO();
+        evD.save(ev);
+        
+             request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
+        
 
     }
 

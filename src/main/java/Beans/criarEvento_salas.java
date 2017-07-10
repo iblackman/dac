@@ -4,6 +4,7 @@ import DAO.RoomsDAO;
 import Model.Rooms;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,26 +24,27 @@ public class criarEvento_salas extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Date dataEv = null;
-        try {
-            dataEv = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("dataEv"));
-        } catch (ParseException ex) {
-            Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-          Date dataFim = null;
-        try {
-            dataFim = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("dataFim"));
-        } catch (ParseException ex) {
-            Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        RoomsDAO salas = new RoomsDAO();
-        List<Rooms> rooms = salas.findAvailableByDate(dataEv,dataFim);
+            Date dataIn = null;
+        try {
+            dataIn = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(request.getParameter("dataIn"));
+        } catch (ParseException ex) {
+            Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   
+           Date dataFim = null;
+        try {
+            dataFim = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(request.getParameter("dataFim"));
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
         
-        request.setAttribute("dataEv", dataEv);
-        request.setAttribute("dataFim", dataFim);
+        RoomsDAO salas = new RoomsDAO();
+        List<Rooms> rooms = salas.findAvailableByDate(dataIn,dataFim);
+
+        
         request.setAttribute("listSalas", rooms);
         
         request.getRequestDispatcher("criarEventos_infos.jsp").forward(request, response);
