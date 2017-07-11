@@ -31,8 +31,10 @@ public class listEventInsc extends HttpServlet {
             throws ServletException, IOException {
        
         EventsDAO event = new EventsDAO();
-        Users user = (Users)request.getSession().getAttribute("user");   
-        List<Events> list = event.findByEventguestUser(user);
+        Users user = (Users)request.getSession().getAttribute("user");  
+        
+        
+        List<Events> list = event.findByUser(user);
        
         request.setAttribute("list", list);
         request.getRequestDispatcher("listEventInsc.jsp").forward(request, response);

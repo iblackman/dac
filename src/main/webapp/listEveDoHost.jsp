@@ -21,15 +21,16 @@
                             <td>${evento.getName()}</td>            
                             <td>${evento.getStartdt()}</td>
                             <td>
-                                <form method="post" action="cacelarEvent">
+                                <form method="post" action="ListadeInscritosNoEventoX">
                                     <input type="submit" value="Ver inscritos">
-                                    <input type="hidden" value="${evento}" name="idEv"/>
+                                    <input type="hidden" value="${evento.getId()}" name="idEv"/>
                                 </form>
                             </td>
                         </tr> 
-                    </tbody>
-                </table> 
-            </c:forEach> 
+
+                    </c:forEach> 
+                </tbody>
+            </table>
         </c:when>
         <c:otherwise>
             Nenhum evento criado!

@@ -52,8 +52,9 @@ public class EventsDAO extends GenericDAO<Events, Integer>{
     }
     
     public List<Events> findByUser(Users user){
-        return (List<Events>) getSession().createQuery("FROM Events WHERE userid = :user")
+        return (List<Events>) getSession().createQuery("FROM Events WHERE userid = :user and status = :status")
                 .setParameter("user", user)
+                .setParameter("status", StatusEvent.CREATED)
                 .list();
     }
     /**

@@ -73,12 +73,18 @@ public class criarEventos_criar extends HttpServlet {
         ev.setRoomid(room);
         
         //TODO, não pode ser 1, tem que ser o user da
-        UsersDAO udao = new UsersDAO();
-        Users user = udao.findById(1);
+        Users user = (Users) request.getSession().getAttribute("user");
 
         ev.setUserid(user);
-        ev.setStatus(StatusEvent.WAITING);// (1-criado, 2-Aguardando aprovacao, 3-Cancelado) 
         
+        int idtype = user.getUsertypeid().getPermission();
+        
+        if(idtype <= 2){
+        ev.setStatus(StatusEvent.CREATED);// (1-criado, 2-Aguardando aprovacao, 3-Cancelado) 
+        }
+        else{
+            ev.setStatus(StatusEvent.WAITING);
+        }    
         EventsDAO s = new EventsDAO();
         s.save(ev);
         
