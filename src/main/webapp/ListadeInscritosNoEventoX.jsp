@@ -5,6 +5,7 @@
 <%@include file="menu.jsp" %>
 
 <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
+
 <div id="conteudo"> 
     <h1> Evento:${ev.getName()} </h1>
 
