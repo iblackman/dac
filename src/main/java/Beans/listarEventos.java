@@ -25,7 +25,6 @@ public class listarEventos extends HttpServlet {
         request.setAttribute("list", list);
 
         request.setAttribute("listaDeEventos", list);
-        System.out.println("merda");
 
         request.getRequestDispatcher("listaeventos.jsp").forward(request, response);
     }

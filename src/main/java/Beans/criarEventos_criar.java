@@ -1,16 +1,23 @@
 package Beans;
 
 import DAO.EventsDAO;
+import DAO.EventtypesDAO;
 import DAO.RoomsDAO;
+import DAO.UsersDAO;
 import Model.Events;
+import Model.Eventtypes;
+import Model.Resources;
 import Model.Rooms;
-import static Model.StatusEvent.WAITING;
+import Model.StatusEvent;
+import Model.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -42,24 +49,39 @@ public class criarEventos_criar extends HttpServlet {
 
         String nomeEv = request.getParameter("nomeEv");
         String descEv = request.getParameter("descEv");
+        int salaID = Integer.parseInt(request.getParameter("salaID"));
+
+        Events ev = new Events();
+        ev.setName(nomeEv);
+        ev.setDescription(descEv);
+        
+        ev.setMaxguests(10);
+        ev.setStartdt(dataIn);
+        ev.setEnddt(dataFim);
+        
+        
+        Eventtypes evt = new Eventtypes();
+        EventtypesDAO etDao = new EventtypesDAO();
+        evt = etDao.findById(1);
+        ev.setEventtypeid(evt);
         
 
-     //   int sala = parseInt(request.getParameter("salaID"));
-       // RoomsDAO rDao = new RoomsDAO();
-        //Rooms r = rDao.findById(sala);
+        RoomsDAO rDao = new RoomsDAO();
+        Rooms room = new Rooms();
+        room = rDao.findById(salaID);
         
+        ev.setRoomid(room);
         
-        int cap = 20;
-        
-        Events ev = new Events(nomeEv,descEv,WAITING, dataIn,dataFim,cap );
+        //TODO, não pode ser 1, tem que ser o user da
+        UsersDAO udao = new UsersDAO();
+        Users user = udao.findById(1);
 
+        ev.setUserid(user);
+        ev.setStatus(StatusEvent.WAITING);// (1-criado, 2-Aguardando aprovacao, 3-Cancelado) 
         
-        EventsDAO evD = new EventsDAO();
-        evD.save(ev);
+        EventsDAO s = new EventsDAO();
+        s.save(ev);
         
-             request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
-        
-
+        request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
     }
-
 }
