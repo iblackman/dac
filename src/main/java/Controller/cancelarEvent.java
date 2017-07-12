@@ -7,9 +7,11 @@ package Controller;
 
 import DAO.EventguestsDAO;
 import DAO.EventsDAO;
+import Model.Eventguests;
 import Model.Events;
 import Model.Users;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,15 +31,20 @@ public class cancelarEvent extends HttpServlet {
         Users user = (Users) request.getSession().getAttribute("user");
         
         EventsDAO evD = new EventsDAO();
-        Events event = evD.findById(idEv);
         
+        //pra cancelar o evento acredito que basta deletar o evento, e os eventguests vao ser deletados em cascade
+        evD.delete(idEv);
         
-        EventguestsDAO eg = new EventguestsDAO();
-        eg.findByEventUser(event, user);
-              
-
-        EventguestsDAO ev = new EventguestsDAO();
-
+//        Events event = evD.findById(idEv);
+//        
+//        EventguestsDAO eg = new EventguestsDAO();
+//        List<Eventguests> egs = eg.findByEventUser(event, user);
+//              
+//        if(egs.size() > 0){
+//            eg.delete(egs.get(0));
+//        }else{
+//            request.setAttribute("message", "Não existe a combinação eventguest");
+//        }
 
         request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
 

@@ -32,10 +32,16 @@ public class cancelarInscEvent extends HttpServlet {
 
         
         EventguestsDAO eg = new EventguestsDAO();
-        
-        List <Eventguests> evl= eg.findByEventUser(idEv, user.getId());
-              
-        eg.delete(evl.get(1));
+        //pegar evento a aartir do id
+        Events ev = new EventsDAO().findById(idEv);
+        //pegar eventGuest passando event e user
+        List <Eventguests> egs = eg.findByEventUser(ev, user);
+        //checar se a lista veio com algum resultado ou não
+        if(egs.size() > 0){
+            eg.delete(egs.get(0));
+        }else{
+            request.setAttribute("message", "Nao existe inscricao desse usuario nesse evento.");
+        }
 
 
         request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
