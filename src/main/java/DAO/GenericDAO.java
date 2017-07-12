@@ -85,6 +85,14 @@ public abstract class GenericDAO<T, I extends Serializable> {
         closeSessionTransaction();
     }
     /**
+     * deleta objeto
+     * @param entity 
+     */
+    public void delete(@Valid T entity){
+        getSessionTransaction().delete(entity);
+        closeSessionTransaction();
+    }
+    /**
      * retorna objeto por id
      * @param id
      * @return 
