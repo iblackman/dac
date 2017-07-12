@@ -7,13 +7,12 @@
 
     <c:choose>
         <c:when test="${!list.isEmpty()}"> 
-
             <table id="listagem" >
                 <thead>
                     <tr>
                         <th>Evento</th>         
                         <th>Data</th>
-                        <th>Cencelar Inscrição</th>
+                        <th>Inscrição</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,8 +21,8 @@
                             <td>${evento.getName()}</td>            
                             <td>${evento.getStartdt()}</td>
                             <td>
-                                <form method="post" action="cancelarInscEvent">
-                                    <input type="submit" value="X">
+                                <form method="post" action="inscEvUsr">
+                                    <input type="submit" value="gogogo">
                                     <input type="hidden" value="${evento.getId()}" name="idEv"/>
                                 </form>
                             </td>

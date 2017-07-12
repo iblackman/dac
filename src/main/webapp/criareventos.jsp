@@ -18,7 +18,9 @@
         <br>
         <br>
         1/2 <input type="submit" value="Escolher Sala" /> <br>
-    </form>   
+    </form> 
+    <br>
+    <input type="button" onclick ="history.back()" value="Voltar" />
 </div>
 
 <%@include file="footer.jsp" %>

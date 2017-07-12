@@ -27,6 +27,8 @@
         <input type="hidden" value="<%= request.getParameter("dataIn")%>" id="dataIn" name="dataIn"/>
         <input type="hidden" value="<%= request.getParameter("dataFim")%>" id="dataFim" name="dataFim"/>
         <br>  <br><input type="submit" value="Criar" /> <br>
-    </form>    
+    </form> 
+    <br>
+    <input type="button" onclick ="history.back()" value="Voltar" />
 </div>
 <%@include file="footer.jsp" %>

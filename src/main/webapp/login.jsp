@@ -11,7 +11,7 @@
             <h1>Logar no Sistema</h1>
             Login:<br> <input type="text" id="usuario" name="usuario"/><br>
             Senha: <br><input type="password" id="senha" name="senha"/><br>
-            <input type="submit" value="Entrar" /> <br>
+            <p><input type="submit" value="Entrar" /> <br>
         </form>         
         <a href="cadastrarusuario.jsp">Cadastrar Usuario</a>
         <%Boolean incorrect = (Boolean) request.getAttribute("incorrect");

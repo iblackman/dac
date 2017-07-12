@@ -49,8 +49,7 @@
                     </c:forEach> 
                 </tbody>
             </table> 
-            <br>
-            <input type="button" onclick ="history.back()" value="Voltar" />
+          
 
         </c:when>
 
@@ -58,6 +57,8 @@
             Nenhum evento a ser aprovado!
         </c:otherwise>
     </c:choose>
+              <br>
+            <input type="button" onclick ="history.back()" value="Voltar" />
 </div>
 
 <%@include file="footer.jsp" %>
