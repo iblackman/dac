@@ -7,9 +7,11 @@ package Beans;
 
 import DAO.EventguestsDAO;
 import DAO.EventsDAO;
+import Model.Eventguests;
 import Model.Events;
 import Model.Users;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,16 +29,13 @@ public class cancelarInscEvent extends HttpServlet {
         int idEv = Integer.parseInt(request.getParameter("idEv"));
                 
         Users user = (Users) request.getSession().getAttribute("user");
-        
-        EventsDAO evD = new EventsDAO();
-        Events event = evD.findById(idEv);
-        
+
         
         EventguestsDAO eg = new EventguestsDAO();
-        eg.findByEventUser(event, user);
+        
+        List <Eventguests> evl= eg.findByEventUser(idEv, user.getId());
               
-
-        EventguestsDAO ev = new EventguestsDAO();
+        eg.delete(evl.get(1));
 
 
         request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);

@@ -24,7 +24,7 @@
                         <td>
                             <form method="post" action="cancelarInscEvent">
                                 <input type="submit" value="X">
-                                <input type="hidden" value="${evento}" name="idEv"/>
+                                <input type="hidden" value="${evento.getId()}" name="idEv"/>
                             </form>
                         </td>
                     </tr> 
