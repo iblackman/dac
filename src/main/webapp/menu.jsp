@@ -5,7 +5,7 @@
 --%>
 
 <link rel="stylesheet" href="./CSS/Menu_estilo.css" type="text/css" /> 
-
+<link rel="stylesheet" href="./CSS/estilo.css" type="text/css" /> 
 <div class="menu">
 
     <div id="itens_menu">

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
 <div id="conteudo"> 
     <h1> LISTA DE EVENTOS CRIADOS POR MIM</h1>
-
+<div id="index"> 
     <c:choose>
         <c:when test="${!list.isEmpty()}"> 
             <table id="listagem" >
