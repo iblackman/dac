@@ -7,33 +7,34 @@
 
     <c:choose>
         <c:when test="${!list.isEmpty()}"> 
-   
-        <table id="listagem" >
-            <thead>
-                <tr>
-                    <th>Evento</th>         
-                    <th>Data</th>
-                    <th>Cencelar Inscrição</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${list}" var="evento"> 
-                    <tr> 
-                        <td>${evento.getName()}</td>            
-                        <td>${evento.getStartdt()}</td>
-                        <td>
-                            <form method="post" action="cancelarInscEvent">
-                                <input type="submit" value="X">
-                                <input type="hidden" value="${evento.getId()}" name="idEv"/>
-                            </form>
-                        </td>
-                    </tr> 
+
+            <table id="listagem" >
+                <thead>
+                    <tr>
+                        <th>Evento</th>         
+                        <th>Data</th>
+                        <th>Cencelar Inscrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${list}" var="evento"> 
+                        <tr> 
+                            <td>${evento.getName()}</td>            
+                            <td>${evento.getStartdt()}</td>
+                            <td>
+                                <form method="post" action="cancelarInscEvent">
+                                    <input type="submit" value="X">
+                                    <input type="hidden" value="${evento.getId()}" name="idEv"/>
+                                </form>
+                            </td>
+                        </tr> 
+
+                    </c:forEach> 
                 </tbody>
-            </table>  
-            </c:forEach> 
+            </table> 
         </c:when>
         <c:otherwise>
-           Você não possui nenhuma inscrição em eventos!
+            Você não possui nenhuma inscrição em eventos!
         </c:otherwise>
     </c:choose>
 

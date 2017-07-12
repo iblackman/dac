@@ -34,6 +34,7 @@ public class cancelarInscEvent extends HttpServlet {
         EventguestsDAO eg = new EventguestsDAO();
         //pegar evento a aartir do id
         Events ev = new EventsDAO().findById(idEv);
+        
         //pegar eventGuest passando event e user
         List <Eventguests> egs = eg.findByEventUser(ev, user);
         //checar se a lista veio com algum resultado ou não
