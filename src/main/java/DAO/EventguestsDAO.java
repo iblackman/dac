@@ -46,9 +46,10 @@ public class EventguestsDAO extends GenericDAO<Eventguests, Integer>{
                 .list();
     }
     
-        public List<Eventguests> findByEventUser(Events event,Users user ){
-        return (List<Eventguests>) getSession().createQuery("FROM Eventguests WHERE events = :event and users = :user ")
+        public List<Eventguests> findByEventUser(int event,int user ){
+        return (List<Eventguests>) getSession().createQuery("FROM Eventguests WHERE EVENTID = :event and USERID = :user ")
                 .setParameter("event", event)
+                .setParameter("user", user)
                 .list();
     }
 }
