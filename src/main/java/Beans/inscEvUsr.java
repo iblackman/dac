@@ -1,3 +1,5 @@
+package Beans;
+
 
 import DAO.EventguestsDAO;
 import DAO.EventsDAO;
