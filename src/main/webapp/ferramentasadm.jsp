@@ -34,7 +34,8 @@
                     out.print("<table><thead><tr><th>Aprovação</th></tr></thead>");
                     out.print("<tdoby>");
                     out.print("<tr><td><a href = \"ListarEventosWaitStatus\">DONE - Aprovação de Eventos</a></td></tr>");
-                    out.print("<tr><td><a href = \"admRoom\">Salas</a></td></tr>");
+                    out.print("<tr><td><a href = \"admRoom\">TODO add sala, add recurso a sala- Salas</a></td></tr>");
+                    out.print("<tr><td><a href = \"admResource\">TODO remover - Recursos</a></td></tr>");
                     out.print("</tdoby></table>");
                 }
             %>

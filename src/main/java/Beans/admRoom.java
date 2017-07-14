@@ -1,4 +1,3 @@
-
 package Beans;
 
 import DAO.RoomsDAO;
@@ -16,22 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "admRoom", urlPatterns = {"/admRoom"})
 public class admRoom extends HttpServlet {
 
-  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-    RoomsDAO rD = new RoomsDAO();
-    List <Rooms> lroom = new ArrayList<>();
-    lroom= rD.findAll();
-    
-    
-            request.setAttribute("lroom", lroom);
-        
-        request.getRequestDispatcher("admRoom.jsp").forward(request, response);
-        
-        
-    }
 
+        RoomsDAO rD = new RoomsDAO();
+        List<Rooms> lroom = new ArrayList<>();
+        lroom = rD.findAll();
+
+        request.setAttribute("lroom", lroom);
+
+        request.getRequestDispatcher("admRoom.jsp").forward(request, response);
+
+    }
 
 }
