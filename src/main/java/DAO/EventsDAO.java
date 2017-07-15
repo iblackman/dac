@@ -38,8 +38,16 @@ public class EventsDAO extends GenericDAO<Events, Integer>{
         return (List<Events>) getSession().createQuery("FROM Events WHERE roomid = :room").setParameter("room", room).list();
     }
     
-    public List<Events> findByRoomByDate(Date dateStart, Date dateEnd){
+    public List<Events> findByDate(Date dateStart, Date dateEnd){
         return (List<Events>) getSession().createQuery("FROM Events WHERE ((:dateStart BETWEEN startdt AND enddt) OR (:dateEnd BETWEEN startdt AND enddt))")  
+                .setParameter("dateStart", dateStart)
+                .setParameter("dateEnd", dateEnd)
+                .list();
+    }
+    
+    public List<Events> findByRoomByDate(Rooms room, Date dateStart, Date dateEnd){
+        return (List<Events>) getSession().createQuery("FROM Events WHERE roomid = :room AND ((:dateStart BETWEEN startdt AND enddt) OR (:dateEnd BETWEEN startdt AND enddt))")  
+                .setParameter("room", room)
                 .setParameter("dateStart", dateStart)
                 .setParameter("dateEnd", dateEnd)
                 .list();
