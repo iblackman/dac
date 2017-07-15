@@ -28,5 +28,18 @@ public class admRoom extends HttpServlet {
         request.getRequestDispatcher("admRoom.jsp").forward(request, response);
 
     }
+     @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        RoomsDAO rD = new RoomsDAO();
+        List<Rooms> lroom = new ArrayList<>();
+        lroom = rD.findAll();
+
+        request.setAttribute("lroom", lroom);
+
+        request.getRequestDispatcher("admRoom.jsp").forward(request, response);
+
+    }
 
 }

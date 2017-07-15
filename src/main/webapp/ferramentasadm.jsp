@@ -16,16 +16,21 @@
                 if (a >= 0) {
                     out.print("<table><thead><tr><th>Participação</th></tr></thead>");
                     out.print("<tdoby>");
-                    out.print("<tr><td><a href = \"criareventos.jsp\">DONE - Criar Eventos</a></td></tr>");
-                    out.print("<tr><td><a href = \"listEventInsc\">DONE - Cancelar inscrição em Eventos</a></td></tr>");
-                    out.print("<tr><td><a href = \"inscEmEventos\">ALMOST DONE -Inscrição em Eventos</a></td></tr>");
+                    out.print("<tr><td><a href = \"criareventos.jsp\">Criar Eventos</a></td></tr>");
+                    // TODO data e hora não estão entrando direito
+                    // TODO  lista de salas disponíveis com problema
+                    out.print("<tr><td><a href = \"listEventInsc\">Cancelar inscrição em Eventos</a></td></tr>");
+                    // TODO não está cancelando
+                    out.print("<tr><td><a href = \"inscEmEventos\">Inscrição em Eventos</a></td></tr>");
+                    // TODO aparece até os eventos em que você está inscrito
                     out.print("</tdoby></table>");
                 }
                 if (a >= 1) {
                     out.print("<table><thead><tr><th>Controle</th></tr></thead>");
+                    
                     out.print("<tdoby>");
-                    out.print("<tr><td><a href = \"listEveDoHost\">ALMOST DONE - Controle de Inscritos</a></td></tr>");
-
+                    out.print("<tr><td><a href = \"listEveDoHost\">Controle de Inscritos</a></td></tr>");
+                    // TODO ???? como fazer o controle de presençã???
                     out.print("</tdoby></table>");
 
                 }
@@ -33,9 +38,11 @@
 
                     out.print("<table><thead><tr><th>Aprovação</th></tr></thead>");
                     out.print("<tdoby>");
-                    out.print("<tr><td><a href = \"ListarEventosWaitStatus\">DONE - Aprovação de Eventos</a></td></tr>");
-                    out.print("<tr><td><a href = \"admRoom\">TODO add sala, add recurso a sala- Salas</a></td></tr>");
-                    out.print("<tr><td><a href = \"admResource\">TODO remover - Recursos</a></td></tr>");
+                    out.print("<tr><td><a href = \"ListarEventosWaitStatus\">Aprovação de Eventos</a></td></tr>");
+                    out.print("<tr><td><a href = \"admRoom\">Salas</a></td></tr>");
+                    // TODO adicionar recursos nas salas
+                    out.print("<tr><td><a href = \"admResource\">Recursos</a></td></tr>");
+                    // TODO remover com problema
                     out.print("</tdoby></table>");
                 }
             %>

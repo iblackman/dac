@@ -12,7 +12,7 @@
 <div id="index"> 
     <h1>LISTA DE RECURSOS</h1>
     <p>
-    <form method="post" id="login" action="SaveResource">
+    <form method="post" action="SaveResource">
         Cadastrar recurso: <input type="text" id="rec" name="rec"/> 
         <input type="submit" value="Cadastrar" /> <br>
     </form>         
@@ -34,8 +34,15 @@
                             <td>${lr.getName()}</td>            
                             <td>
                                 <form method="post" action="deletResource">
-                                    <input type="submit" value="X">
                                     <input type="hidden" value="${lr.getId()}" name="RecId" id="RecId"/>
+                                    <c:choose>                                        
+                                        <c:when test="${!lr.getRoomsCollection().isEmpty()}">
+                                            <input type="submit" value="X" disabled >                                  
+                                        </c:when>
+                                        <c:otherwise>
+                                            <input type="submit" value="X"  >
+                                        </c:otherwise>
+                                    </c:choose>
                                 </form>   
                             </td>
                         </tr> 

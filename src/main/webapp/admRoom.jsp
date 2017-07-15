@@ -12,11 +12,12 @@
 <div id="index"> 
     <h1> LISTA DE SALAS</h1>
     
-    <form>
-        
-        
-        
-    </form>
+   <p>
+    <form method="post" action="SaveRoom">
+        Cadastrar sala: <input type="text" id="sala" name="sala"/> 
+        <input type="submit" value="Cadastrar" /> <br>
+    </form>         
+    <p>
     
     
     <c:choose>
