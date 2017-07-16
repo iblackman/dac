@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
 <div id="index"> 
     <div id="conteudo"> 
-        <h1> Evento:${ev.getName()} </h1>
+        <h1> Evento: ${ev.getName()} </h1>
 
         <c:choose>
             <c:when test="${!userList.isEmpty()}"> 
@@ -15,7 +15,8 @@
                     <thead>
                         <tr>
                             <th>Nome</th>         
-                            <th>Presente</th>
+                            <th>Situação</th>
+                            <th>Faltoso</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -23,6 +24,7 @@
                             <tr> 
                                 <td>${usr.getName()}</td>            
                                 <td>PRESENTE!</td>
+                                <td>Faltou clica aqui!</td>
                                 </td>
                             </tr> 
 
