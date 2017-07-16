@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.EventsDAO;
 import Model.Events;
+import Model.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -27,8 +28,11 @@ public class inscEmEventos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        
+         Users user = (Users) request.getSession().getAttribute("user");
+        
         EventsDAO edao = new EventsDAO();
-        List<Events> list = edao.findAll();
+        List<Events> list = edao.findPossibleToUser(user);
 
         request.setAttribute("list", list);
 

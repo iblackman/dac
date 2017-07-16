@@ -27,14 +27,14 @@ public class criarEvento_salas extends HttpServlet {
 
             Date dataIn = null;
         try {
-            dataIn = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(request.getParameter("dataIn"));
+            dataIn = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(request.getParameter("dataIn"));
         } catch (ParseException ex) {
             Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
         }
    
            Date dataFim = null;
         try {
-            dataFim = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(request.getParameter("dataFim"));
+            dataFim = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(request.getParameter("dataFim"));
             
         } catch (ParseException ex) {
             Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
@@ -43,9 +43,10 @@ public class criarEvento_salas extends HttpServlet {
         
         RoomsDAO salas = new RoomsDAO();
         List<Rooms> rooms = salas.findAvailableByDate(dataIn,dataFim);
-
-        
+                
         request.setAttribute("listSalas", rooms);
+        request.setAttribute("dataIn",dataIn );
+        request.setAttribute("dataFim", dataFim);
         
         request.getRequestDispatcher("criarEventos_infos.jsp").forward(request, response);
 

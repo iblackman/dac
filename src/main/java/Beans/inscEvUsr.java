@@ -4,6 +4,7 @@ package Beans;
 import DAO.EventguestsDAO;
 import DAO.EventsDAO;
 import Model.Eventguests;
+import Model.Events;
 import Model.StatusEventGuest;
 import Model.Users;
 import java.io.IOException;
@@ -24,15 +25,18 @@ public class inscEvUsr extends HttpServlet {
         EventsDAO evD = new EventsDAO();
         int idEvent = Integer.parseInt(request.getParameter("idEv"));
         Users user = (Users) request.getSession().getAttribute("user");
+        Events ev = evD.findById(idEvent);
+        
+        
+        Eventguests evg = new Eventguests(ev,user);
 
         EventguestsDAO evGuests = new EventguestsDAO();
-        Eventguests evg = new Eventguests();
-        evg.setEvents(evD.save(evD.findById(idEvent)));
-        evg.setUsers(user);
-        evg.setPresence(0);
-        evg.setStatus(StatusEventGuest.OK);
         
-          request.getRequestDispatcher("inscEmEventos.jsp").forward(request, response);
+        evGuests.save(evg);
+        
+     
+        
+          request.getRequestDispatcher("ferramentasadm.jsp").forward(request, response);
     }
 
 }

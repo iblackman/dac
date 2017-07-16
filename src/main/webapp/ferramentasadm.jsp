@@ -18,11 +18,8 @@
                     out.print("<tdoby>");
                     out.print("<tr><td><a href = \"criareventos.jsp\">Criar Eventos</a></td></tr>");
                     // TODO data e hora não estão entrando direito
-                    // TODO  lista de salas disponíveis com problema
                     out.print("<tr><td><a href = \"listEventInsc\">Cancelar inscrição em Eventos</a></td></tr>");
-                    // TODO não está cancelando
                     out.print("<tr><td><a href = \"inscEmEventos\">Inscrição em Eventos</a></td></tr>");
-                    // TODO aparece até os eventos em que você está inscrito
                     out.print("</tdoby></table>");
                 }
                 if (a >= 1) {

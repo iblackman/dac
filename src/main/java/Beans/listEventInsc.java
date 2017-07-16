@@ -11,6 +11,7 @@ import Model.Eventguests;
 import Model.Events;
 import Model.Users;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,13 +31,23 @@ public class listEventInsc extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-        EventsDAO event = new EventsDAO();
-        Users user = (Users)request.getSession().getAttribute("user");  
+        
+        EventguestsDAO eD = new EventguestsDAO();
+        List <Eventguests> e = new ArrayList<>();
+        
+        Users user = (Users)request.getSession().getAttribute("user"); 
+        e = eD.findByUser(user);
+        
+        List <Events> ev = new ArrayList<>();
         
         
-        List<Events> list = event.findByUser(user);
+         
+        for(Eventguests evg : e){
+        ev.add(evg.getEvents());
+        }
        
-        request.setAttribute("list", list);
+      
+        request.setAttribute("list", ev);
         request.getRequestDispatcher("listEventInsc.jsp").forward(request, response);
         
         
