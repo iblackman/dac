@@ -53,6 +53,15 @@ public class EventsDAO extends GenericDAO<Events, Integer>{
                 .list();
     }
     
+    public List<Events> findPossibleToUser(Users user){
+        List<Eventguests> eventGuests = new EventguestsDAO().findByUser(user);
+        List<Events> events = findAll();
+        for(Eventguests evg : eventGuests){
+            events.remove(evg.getEvents());
+        }
+        return events;
+    }
+    
     public List<Events> findWaiting(){
         return (List<Events>) getSession().createQuery("FROM Events WHERE status = :status")
                 .setParameter("status", StatusEvent.WAITING)
