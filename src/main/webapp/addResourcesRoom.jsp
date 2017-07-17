@@ -26,7 +26,7 @@
                     <c:forEach items="${list}" var="resources"> 
                         <tr> 
                             <td>${resources.getName()}</td>
-                            <td><input type="check" name="presente" value=""></td>
+                            <td><input type="radio" name="presente" value=""></td>
                             <td><input type="submit" value="Adicionar"></td>
                         </tr> 
                             </c:forEach> 
