@@ -35,14 +35,16 @@ public class criarEventos_criar extends HttpServlet {
 
         Date dataIn = null;
         try {
-            dataIn = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("dataIn"));
+            String[] datetime = request.getParameter("dataIn").split("T");
+            dataIn = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(datetime[0]+" "+datetime[1]);
         } catch (ParseException ex) {
             Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Date dataFim = null;
         try {
-            dataFim = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("dataFim"));
+            String[] datetime = request.getParameter("dataFim").split("T");
+            dataFim = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(datetime[0]+" "+datetime[1]);
         } catch (ParseException ex) {
             Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -59,15 +61,13 @@ public class criarEventos_criar extends HttpServlet {
         ev.setStartdt(dataIn);
         ev.setEnddt(dataFim);
         
-        
-        Eventtypes evt = new Eventtypes();
         EventtypesDAO etDao = new EventtypesDAO();
-        evt = etDao.findById(1);
+        Eventtypes evt = etDao.findById(1);
         ev.setEventtypeid(evt);
         
 
         RoomsDAO rDao = new RoomsDAO();
-        Rooms room = new Rooms();
+        Rooms room;
         room = rDao.findById(salaID);
         
         ev.setRoomid(room);

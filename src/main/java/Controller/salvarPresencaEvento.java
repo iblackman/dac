@@ -42,10 +42,8 @@ public class salvarPresencaEvento extends HttpServlet {
         Events ev = evDAO.findById(eventId);
         
         EventguestsDAO evgDAO = new EventguestsDAO();
-        Eventguests evg = new Eventguests();
-        
-        evg.setUsers(usr);
-        evg.setEvents(ev);
+        Eventguests evg = evgDAO.findByEventUser(ev, usr).get(0);
+
         evg.setStatus(StatusEventGuest.OK);
         evg.setPresence(presenca);
         

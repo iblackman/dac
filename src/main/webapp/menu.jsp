@@ -13,7 +13,7 @@
             <li><a href="index.jsp">Home</a></li>
             <li><a href="listarEventos" >Lista de Eventos</a></li>
             <%if (request.getSession().getAttribute("logou") == null){%>
-            <li><a href="login.jsp">Login</a></li>
+            <li><a href="login">Login</a></li>
             <%}%>
             <%if (request.getSession().getAttribute("logou") != null) {%>
             <li><a href="ferramentasadm.jsp">Ferramentas Administrativas</a></li>

@@ -1,8 +1,14 @@
 
+<%@page import="Model.Events"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <%@include file="menu.jsp" %>
+
+<%
+    Events ev = (Events) request.getAttribute("ev");
+    
+%>
 
 <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
 <div id="index"> 

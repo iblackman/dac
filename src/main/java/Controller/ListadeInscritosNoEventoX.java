@@ -26,12 +26,6 @@ public class ListadeInscritosNoEventoX extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        
-        
-        
-        
-        
-        
         EventsDAO evDao = new EventsDAO();
         Events ev = evDao.findById(Integer.parseInt(request.getParameter("idEv")));
 

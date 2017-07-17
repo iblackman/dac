@@ -26,15 +26,19 @@ public class criarEvento_salas extends HttpServlet {
 
 
             Date dataIn = null;
+            String[] datetime;
         try {
-            dataIn = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(request.getParameter("dataIn"));
+            datetime = request.getParameter("dataIn").split("T");
+            dataIn = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(datetime[0]+" "+datetime[1]);
         } catch (ParseException ex) {
             Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
         }
    
            Date dataFim = null;
+           String[] datetime2;
         try {
-            dataFim = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(request.getParameter("dataFim"));
+            datetime2 = request.getParameter("dataFim").split("T");
+            dataFim = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(datetime2[0]+" "+datetime2[1]);
             
         } catch (ParseException ex) {
             Logger.getLogger(criarEvento_salas.class.getName()).log(Level.SEVERE, null, ex);
