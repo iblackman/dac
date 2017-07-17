@@ -22,7 +22,7 @@
                             <td>${evento.getStartdt()}</td>
                             <td>
                                 <form method="post" action="inscEvUsr">
-                                    <input type="submit" value="gogogo">
+                                    <input type="submit" value="Inscrever">
                                     <input type="hidden" value="${evento.getId()}" name="idEv"/>
                                 </form>
                             </td>

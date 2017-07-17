@@ -11,22 +11,23 @@
 <link rel="stylesheet" href="./CSS/tabela.css" type="text/css" /> 
 <div id="index"> 
     <h1> LISTA DE SALAS</h1>
-    
-   <p>
+
+    <p>
     <form method="post" action="SaveRoom">
         Cadastrar sala: <input type="text" id="sala" name="sala"/> 
         <input type="submit" value="Cadastrar" /> <br>
     </form>         
     <p>
-    
-    
-    <c:choose>
-        <c:when test="${!lroom.isEmpty()}"> 
+
+
+        <c:choose>
+            <c:when test="${!lroom.isEmpty()}"> 
             <table id="listagem" >
                 <thead>
                     <tr>
                         <th>Nome</th> 
                         <th>Recursos</th>
+                        <th>Editar Recursos</th>
                         <th>Deletar</th>
 
                     </tr>
@@ -41,7 +42,7 @@
                                 <c:choose>
                                     <c:when test="${!room.getResourcesCollection().isEmpty()}"> 
                                         <c:forEach items="${room.getResourcesCollection()}" var="resources"> 
-                                          -  ${resources.getName()} <br>
+                                            -  ${resources.getName()} <br>
                                         </c:forEach> 
                                     </c:when>
                                     <c:otherwise>
@@ -49,7 +50,11 @@
                                     </c:otherwise>
                                 </c:choose>
                             </td>
-
+                            <td> <form method="Post" action="admRoomAddResource">
+                                    <input type="hidden" id="roomid" name="roomid" value="${room.getId()}" />
+                                    <input type="submit" value="E" />
+                                </form>
+                            </td>
                             <td><button type="button"> X </button></td>
                         </tr> 
                     </c:forEach> 
