@@ -15,20 +15,26 @@
                     <thead>
                         <tr>
                             <th>Nome</th>         
-                            <th>Situação</th>
+                            <th>Presente</th>
                             <th>Faltoso</th>
+                            <th>Salvar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${userList}" var="usr"> 
                             <tr> 
-                                <td>${usr.getName()}</td>            
-                                <td>PRESENTE!</td>
-                                <td>Faltou clica aqui!</td>
-                                </td>
-                            </tr> 
+                        <form method="post" action="salvarPresencaEvento">
+                            <td>${usr.getName()}</td>            
+                            <td><input type="radio" name="presenca" value="presente" checked></td>
+                            <td><input type="radio" name="presenca" value="faltou">!</td>
+                            <td><input type="submit" value="Salvar" /></td>
+                            
+                            <input type="hidden" name="usrId" value="${usr.getId()}" />
+                            <input type="hidden" name="eventId" value="${ev.getId()}" />
+                        </form>
+                        </tr> 
 
-                        </c:forEach> 
+                    </c:forEach> 
                     </tbody>
                 </table> 
             </c:when>
