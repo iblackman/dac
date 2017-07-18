@@ -40,7 +40,9 @@ public class ListadeInscritosNoEventoX extends HttpServlet {
             usr = c.getUsers();
             userList.add(usr);
         }
-
+        
+        request.setAttribute("evguests", evGuestsList);
+        
         request.setAttribute("userList", userList);
         
         request.setAttribute("ev", ev);

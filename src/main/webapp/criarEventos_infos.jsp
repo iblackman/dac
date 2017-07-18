@@ -1,6 +1,11 @@
 <%@page import="java.util.Date"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="menu.jsp" %>
+<%
+    String dateIn = request.getParameter("dataIn").replace("T", " ");
+    String dateFim = request.getParameter("dataFim").replace("T", " ");
+    
+%>
 <div id="index"> 
     <h1>CRIAR EVENTOS</h1>
 
@@ -8,17 +13,17 @@
 
 
     Inicio do Evento: <br>
-    <%= request.getParameter("dataIn")%><br>
+    <%= dateIn%><br>
 
     Fim do Evento:<br>
-    <%= request.getParameter("dataFim")%><br>
+    <%= dateFim%><br>
     <br><br>
 
 
     <form method="post" action="criarEventos_criar">
 
-        Nome do Evento: <br><input type="text" id="nomeEv" name="nomeEv"/><br>
-        Descrição do Evento: <br><input type="textarea" id="descEv" name="descEv"/><br>
+        Nome do Evento: <br><input type="text" id="nomeEv" name="nomeEv" required/><br>
+        Descrição do Evento: <br><input type="textarea" id="descEv" name="descEv" required/><br>
         Sala:<select id="sala" name="salaID">
             <c:forEach items="${listSalas}" var="sala">            
                 <option value="${sala.getId()}">${sala.getName()}</option>          

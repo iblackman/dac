@@ -36,8 +36,10 @@ public class admRoomAddResource extends HttpServlet {
         
         RoomsDAO roomD = new RoomsDAO();
         Rooms a = roomD.findById(roomid);
-         request.setAttribute("list", lr);
-
+        request.setAttribute("list", lr);
+         
+        List<Resources> listTem = (List<Resources>) a.getResourcesCollection();
+        request.setAttribute("listTem", listTem);
 
         request.setAttribute("room",a );
 

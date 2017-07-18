@@ -26,7 +26,7 @@ public class HibernateSessionFactory {
             configuration.configure();
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-            fillDB();
+            //fillDB();
         }
         return sessionFactory.openSession();
     }    
